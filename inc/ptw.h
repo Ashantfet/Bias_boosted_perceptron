@@ -28,7 +28,7 @@
 #include "channel.h"
 #include "operable.h"
 #include "ptw_builder.h"
-#include "util/lru_table.h"
+#include "msl/lru_table.h"
 #include "waitable.h"
 
 class VirtualMemory;
@@ -45,7 +45,7 @@ class PageTableWalker : public champsim::operable
     auto operator()(const pscl_entry& entry) const { return entry.vaddr.slice_upper(shamt); }
   };
 
-  using pscl_type = champsim::lru_table<pscl_entry, pscl_indexer, pscl_indexer>;
+  using pscl_type = champsim::msl::lru_table<pscl_entry, pscl_indexer, pscl_indexer>;
   using channel_type = champsim::channel;
   using request_type = typename channel_type::request_type;
   using response_type = typename channel_type::response_type;

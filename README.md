@@ -98,7 +98,7 @@ This repository contains a **modified version of ChampSim** integrated with a **
 
 ## 🏗️ Architecture
 
-![Bias Boosted Perceptron](assets/1.png)
+![Bias Boosted Perceptron](1.png)
 
 ---
 

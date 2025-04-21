@@ -81,6 +81,42 @@ $ bin/champsim --warmup_instructions 200000000 --simulation_instructions 5000000
 Program traces are available in a variety of locations, however, many ChampSim users wish to trace their own programs for research purposes.
 Example tracing utilities are provided in the `tracer/` directory.
 
+# 🔍 Bias-Boosted Perceptron Branch Predictor
+
+This repository contains a **modified version of ChampSim** integrated with a **Bias-Boosted Perceptron** branch predictor, named **Ashant**. The predictor improves traditional perceptron prediction by dynamically initializing and adapting the bias term based on branch behavior.
+
+---
+
+## 📘 Overview
+
+### 🧠 Key Features:
+- **Dynamic Bias Heuristic:** Uses `w₀ = round(B × (T - N))` to adaptively set the bias.
+- **Improved Learning:** Prioritizes mispredicted branches for weight updates.
+- **Plug-and-Play:** Seamless integration with ChampSim core simulation pipeline.
+
+---
+
+## 🏗️ Architecture
+
+![Bias Boosted Perceptron](assets/1.png)
+
+---
+
+## 🔧 How to Build
+
+> Make sure you have all dependencies, except for `vcpkg`, which is not included in this repo.
+
+```bash
+# Install dependencies
+sudo apt update
+sudo apt install cmake g++ libz-dev
+
+# Clone and build
+git clone https://github.com/Ashantfet/Bias_boosted_perceptron.git
+cd Bias_boosted_perceptron
+./build_champsim.sh bimodal no no no no lru 1
+
+
 # Evaluate Simulation
 
 ChampSim measures the IPC (Instruction Per Cycle) value as a performance metric. <br>
